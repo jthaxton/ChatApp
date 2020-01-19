@@ -15,11 +15,12 @@ var WebSocketServer = require('ws').Server,
   wss.on('connection', function (ws) {
   ws.on('message', function (message) {
     console.log('received: %s', message)
+    ws.send( message)
   })  
-  setInterval(
-    () => ws.send( `received THING`),
-    1000
-  )
+  // setInterval(
+  //   () => ws.send( `${message.text}`),
+  //   1000
+  // )
 })
 // const connections = [];
 

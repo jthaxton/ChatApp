@@ -1,23 +1,81 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
+import Label from './Label';
+import TextItem from './TextItem';
+import styled from 'styled-components';
 
+const StyledTextItemContainer = styled.div`
+  min-width: 250px;
+  max-width: 100%;
+  display: flex;
+`;
+
+// const ChatWindow = styled.div`
+//   overflow-y: auto;
+//   max-height: 100%;
+//   display: grid;
+// `;
+
+const OwnTextItem = styled(StyledTextItemContainer)`
+  // background-color: green;
+`;
 const Another = ({...props}) => {
-const [messages, setMessages] = useState([]);
-    // event emmited when connected
-props.ws.onopen = () => {
-    console.log('websocket is connected ...')        // sending a send event to websocket server
-    props.ws.send('connected')
-}    // event emmited when receiving message 
-props.ws.onmessage = (ev) => {
-    console.log(ev)
-    messages && setMessages(ev)
-}
-console.log(messages)
+  const [text, setText] = useState("");
+  const [currentUser, setCurrentUser] = useState("")
 
-return (
-  <div>
-    {messages.data}
-  </div>
-)
+
+
+
+useEffect(() => {
+  if (currentUser === "") {
+    setCurrentUser(`user_${Math.floor(Math.random() * (999999999 - 1000000))}:`)
+  }
+  // setText([...props.allItems, {user: 2, text: 2}])
+
+  // listen()
+}, [currentUser])
+
+// const listen = () => {
+  // let parsed = {};
+
+//   console.log(parsed);
+// }
+
+
+
+
+
+const handleChange = (e) => {
+  setText(e.target.value)
+}
+
+const handleSubmit = (e) => {
+  props.ws.send(JSON.stringify({text: text, user: currentUser}))
+  setText("")
+}
+
+const handleKeyDown = e => {
+  if (e.keyCode === 13 && text.length > 0) {
+    handleSubmit(e)
+  }
+}
+console.log("HERE")
+console.log(props.allItems)
+  return (
+    <>
+      {props.allItems.map(item => (
+        <div>
+          <div>
+            {item.user}
+          </div>
+          <div>
+            {item.text}
+          </div>
+        </div>
+      ))}
+      <input onChange={e => handleChange(e)} value={text} onKeyDown={e => handleKeyDown(e)}></input>
+      <button onClick={handleSubmit}>Submit</button>
+      </>
+  )
 }
 
 export default Another;
