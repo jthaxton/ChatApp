@@ -33,10 +33,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     window.getState = store.getState;
-    const host = window.location.origin.replace(/^http/, 'ws');
-    const client = new W3CWebSocket(host);
     const root = document.getElementById('root');    
-    ReactDOM.render(<Root store = {store} client={client}/>, root);
+    ReactDOM.render(<Root store = {store}/>, root);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

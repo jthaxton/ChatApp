@@ -17,7 +17,7 @@ var WebSocketServer = require('ws').Server,
     console.log('received: %s', message)
   })  
   setInterval(
-    () => ws.send(`${new Date()}`),
+    () => ws.send( `received THING`),
     1000
   )
 })
