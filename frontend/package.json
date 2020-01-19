@@ -21,6 +21,7 @@
     "redux": "^4.0.1",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
+    "styled-components": "^5.0.0",
     "webpack": "4.41.2",
     "websocket": "^1.0.31",
     "yelp-fusion": "^2.0.2"

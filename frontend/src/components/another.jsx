@@ -9,11 +9,11 @@ const StyledTextItemContainer = styled.div`
   display: flex;
 `;
 
-// const ChatWindow = styled.div`
-//   overflow-y: auto;
-//   max-height: 100%;
-//   display: grid;
-// `;
+const ChatWindow = styled.div`
+  overflow-y: auto;
+  max-height: 100%;
+  display: grid;
+`;
 
 const OwnTextItem = styled(StyledTextItemContainer)`
   // background-color: green;
@@ -49,18 +49,20 @@ const handleKeyDown = e => {
 
   return (
     <>
-      {props.allItems.map(item => (
-        <div>
-          <div>
+    <ChatWindow>
+      {props.allItems.map((item, idx)=> (
+        <StyledTextItemContainer key={idx}>
+          <Label>
             {item.user}
-          </div>
-          <div>
+          </Label>
+          <TextItem>
             {item.text}
-          </div>
-        </div>
+          </TextItem>
+        </StyledTextItemContainer>
       ))}
       <input onChange={e => handleChange(e)} value={text} onKeyDown={e => handleKeyDown(e)}></input>
       <button onClick={handleSubmit}>Submit</button>
+      </ChatWindow>
       </>
   )
 }
