@@ -3,7 +3,7 @@ import Another from './another'
 const Test = ({...props}) => {
   const [allItems, setAllItems] = useState([]);
 
-  const ws = new WebSocket('ws://localhost:443');
+  const ws = new WebSocket('ws://localhost:40510');
   ws.onopen = () => {
     console.log('websocket is connected ...')
     ws.send('connected')

@@ -8,7 +8,7 @@ const path = require('path');
 const http = require('http');
 
 const WebSocketServer = require('ws').Server,
-  wss = new WebSocketServer({port: 443}) 
+  wss = new WebSocketServer({port: 40510}) 
   const connections = [];
   wss.on('connection', function (ws) {
     connections.push(ws)
@@ -41,5 +41,5 @@ app.use(bodyParser.json());
 //   .connect(db)
 //   .then(() => console.log("Connected to MongoDB successfully"))
 //   .catch(err => console.log(err));
-const port = process.env.PORT || 80;
+const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(`Server is running on port ${port}`));
