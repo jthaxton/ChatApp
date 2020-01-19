@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import Root from './components/root';
 import * as serviceWorker from './serviceWorker';
-import { w3cwebsocket as W3CWebSocket } from "websocket";
 import jwt_decode from "jwt-decode";
 import * as APIUtil from "./util/session_api_util";
 import configureStore from "./store/store";

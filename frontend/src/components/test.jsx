@@ -5,15 +5,12 @@ const Test = ({...props}) => {
 
   const ws = new WebSocket('ws://localhost:40510');
   ws.onopen = () => {
-    console.log('websocket is connected ...')        // sending a send event to websocket server
+    console.log('websocket is connected ...')
     ws.send('connected')
   }   
   ws.onmessage = (message) => {
     let parsed = JSON.parse(message.data);
-      console.log(message)
-      console.log(parsed)
-      // setAllItems("a")
-      setAllItems([{user: parsed.user, text: parsed.text}])
+      setAllItems([...allItems, {user: parsed.user, text: parsed.text}])
   
   }
   return (

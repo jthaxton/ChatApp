@@ -29,19 +29,7 @@ useEffect(() => {
   if (currentUser === "") {
     setCurrentUser(`user_${Math.floor(Math.random() * (999999999 - 1000000))}:`)
   }
-  // setText([...props.allItems, {user: 2, text: 2}])
-
-  // listen()
 }, [currentUser])
-
-// const listen = () => {
-  // let parsed = {};
-
-//   console.log(parsed);
-// }
-
-
-
 
 
 const handleChange = (e) => {
@@ -58,8 +46,7 @@ const handleKeyDown = e => {
     handleSubmit(e)
   }
 }
-console.log("HERE")
-console.log(props.allItems)
+
   return (
     <>
       {props.allItems.map(item => (
