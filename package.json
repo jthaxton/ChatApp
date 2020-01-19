@@ -1,0 +1,45 @@
+{
+  "name": "BoredNoMore",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "engines": {
+    "node": "8.12.0"
+  },
+  "scripts": {
+    "start": "node app.js",
+    "server": "nodemon app.js",
+    "server-inspect": "nodemon --inspect app.js",
+    "frontend-install": "npm install --prefix frontend",
+    "frontend": "npm start --prefix frontend",
+    "dev": "concurrently \"npm run server\" \"npm run frontend\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.3",
+    "concurrently": "^4.0.1",
+    "express": "^4.16.4",
+    "jsonwebtoken": "^8.3.0",
+    "jwt-decode": "^2.2.0",
+    "lodash.merge": "^4.6.1",
+    "mongoose": "^5.3.4",
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0",
+    "react": "^16.5.2",
+    "react-modal": "^3.6.1",
+    "react-redux": "^5.0.7",
+    "react-router-dom": "^4.3.1",
+    "redux": "^4.0.1",
+    "ws": "^7.2.0",
+    "validator": "^10.8.0",
+    "yelp-fusion": "^2.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.4"
+  }
+}
