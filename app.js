@@ -8,7 +8,7 @@ const path = require('path');
 const http = require('http');
 
 const WebSocketServer = require('ws').Server,
-  wss = new WebSocketServer({port: 40510}) 
+  wss = new WebSocketServer({port: 443}) 
   const connections = [];
   wss.on('connection', function (ws) {
     connections.push(ws)
