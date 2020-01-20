@@ -14,7 +14,7 @@ const WebSocketServer = require('ws').Server,
     connections.push(ws)
   ws.on('message', function (message) {
     console.log('received: %s', message)
-    connections.forEach(connection => connection.send(message))
+    connections.forEach(connection => connection.send((message)))
   })  
 
 })
@@ -31,6 +31,7 @@ if (process.env.NODE_ENV === "production") {
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.get("/", (req, res) => res.send("Hello World"));
+app.get("/.well-known/acme-challenge/oS7GY8wJrnTy3M4YNemMG7_xrpeXdBpkWIJXEujwA9w", res.send("oS7GY8wJrnTy3M4YNemMG7_xrpeXdBpkWIJXEujwA9w.k7CUxS0iskqSkXX4DDwRahYigHMwtqg471aDKJ7805U"))
 app.use(passport.initialize());
 
 
