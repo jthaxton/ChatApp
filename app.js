@@ -22,7 +22,7 @@ const WebSocketServer = require('ws').Server,
 const bodyParser = require("body-parser");
 
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static("frontend/build"));
+  app.use(express.static("frontend/build"), {dotfiles: "allow"});
   app.get("/", (req, res) => {
     res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
   });
@@ -31,7 +31,6 @@ if (process.env.NODE_ENV === "production") {
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.get("/", (req, res) => res.send("Hello World"));
-app.get("/.well-known/acme-challenge/oS7GY8wJrnTy3M4YNemMG7_xrpeXdBpkWIJXEujwA9w", res.send("oS7GY8wJrnTy3M4YNemMG7_xrpeXdBpkWIJXEujwA9w.k7CUxS0iskqSkXX4DDwRahYigHMwtqg471aDKJ7805U"))
 app.use(passport.initialize());
 
 
