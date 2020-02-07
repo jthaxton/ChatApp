@@ -4,7 +4,7 @@ const Test = ({...props}) => {
   const [allItems, setAllItems] = useState([]);
   const [conn, setConn] = useState(false);
 
-  const HOST = "wss://chat-service-1.herokuapp.com"
+  const HOST = "wss://chat-service-1.herokuapp.com:40510"
   // location.origin.replace(/^http/, 'ws')
   const ws = new WebSocket(HOST);
   ws.onopen = () => {
