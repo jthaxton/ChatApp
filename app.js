@@ -28,6 +28,7 @@ if (process.env.NODE_ENV === "production") {
   // app.get("/.well-known/acme-challenge/oS7GY8wJrnTy3M4YNemMG7_xrpeXdBpkWIJXEujwA9w", (req, res) => {
   //   res.sendFile(path.resolve(__dirname, ".well-known", "acme-challenge", "oS7GY8wJrnTy3M4YNemMG7_xrpeXdBpkWIJXEujwA9w"))
   // })
+  // 
   app.get("/", (req, res) => {
     res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
   });
