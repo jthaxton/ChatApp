@@ -40,9 +40,9 @@ app.use(bodyParser.json());
 const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(`Server is running on port ${port}`));
 
-
+const server = http.createServer(app);
 const WebSocketServer = require('ws').Server,
-  wss = new WebSocketServer({port: 40510}) 
+  const wss = new WebSocketServer({server: server});
   const connections = [];
   wss.on('connection', function (ws) {
     connections.push(ws)
