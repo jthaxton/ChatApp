@@ -23,11 +23,11 @@ const bodyParser = require("body-parser");
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("frontend/build"));
-  app.use(express.static("/.well-known/acme-challenge/oS7GY8wJrnTy3M4YNemMG7_xrpeXdBpkWIJXEujwA9w", { dotfiles: 'allow' } ));
+  // app.use(express.static("/.well-known/acme-challenge/oS7GY8wJrnTy3M4YNemMG7_xrpeXdBpkWIJXEujwA9w", { dotfiles: 'allow' } ));
 
-  app.get("/.well-known/acme-challenge/oS7GY8wJrnTy3M4YNemMG7_xrpeXdBpkWIJXEujwA9w", (req, res) => {
-    res.sendFile(path.resolve(__dirname, ".well-known", "acme-challenge", "oS7GY8wJrnTy3M4YNemMG7_xrpeXdBpkWIJXEujwA9w"))
-  })
+  // app.get("/.well-known/acme-challenge/oS7GY8wJrnTy3M4YNemMG7_xrpeXdBpkWIJXEujwA9w", (req, res) => {
+  //   res.sendFile(path.resolve(__dirname, ".well-known", "acme-challenge", "oS7GY8wJrnTy3M4YNemMG7_xrpeXdBpkWIJXEujwA9w"))
+  // })
   app.get("/", (req, res) => {
     res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
   });
