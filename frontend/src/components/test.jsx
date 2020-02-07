@@ -4,7 +4,9 @@ const Test = ({...props}) => {
   const [allItems, setAllItems] = useState([]);
   const [conn, setConn] = useState(false);
 
-  const ws = new WebSocket('ws://chat-service-1.herokuapp.com:40510');
+  const HOST = "wss://chat-service-1.herokuapp.com"
+  // location.origin.replace(/^http/, 'ws')
+  const ws = new WebSocket(HOST);
   ws.onopen = () => {
     console.log('websocket is connected ...')
     ws.send('connected')
