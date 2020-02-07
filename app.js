@@ -41,6 +41,7 @@ const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(`Server is running on port ${port}`));
 
 const server = http.createServer(app);
+server.listen(port);
 const WebSocketServer = require('ws').Server
   const wss = new WebSocketServer({server: server});
   const connections = [];
@@ -49,6 +50,10 @@ const WebSocketServer = require('ws').Server
   ws.on('message', function (message) {
     console.log('received: %s', message)
     connections.forEach(connection => connection.send((message)))
-  })  
+  }) 
+  ws.on("close", function() {
+    console.log("websocket connection close")
+    clearInterval(id)
+  })
 
 })
