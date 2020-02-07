@@ -14,7 +14,7 @@
     "frontend": "npm start --prefix frontend",
     "dev": "concurrently \"npm run server\" \"npm run frontend\"",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend",
-    "heroku-prebuild": "rm -rf ./node_modules/ && npm install && rm -rf ../frontend/node_modules/ && npm install --prefix frontend"
+    "heroku-prebuild": "rm -rf ./node_modules/ && rm -rf ./package-lock.json && npm install && rm -rf ../frontend/node_modules/ && rm -rf ../frontend/package-lock.json && npm install --prefix frontend"
   },
   "keywords": [],
   "author": "",
