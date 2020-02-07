@@ -41,7 +41,7 @@ const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(`Server is running on port ${port}`));
 
 const server = http.createServer(app);
-const WebSocketServer = require('ws').Server,
+const WebSocketServer = require('ws').Server
   const wss = new WebSocketServer({server: server});
   const connections = [];
   wss.on('connection', function (ws) {
