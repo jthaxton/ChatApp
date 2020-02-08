@@ -8,7 +8,8 @@ import * as APIUtil from "./util/session_api_util";
 import configureStore from "./store/store";
 
 // import registerServiceWorker from "./registerServiceWorker";
-
+const HOST = window.location.origin.replace(/^http/, 'ws')
+const ws = new WebSocket(HOST);
 document.addEventListener('DOMContentLoaded', () => {
 
     let store = configureStore();
@@ -33,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.getState = store.getState;
     const root = document.getElementById('root');    
-    ReactDOM.render(<Root store = {store}/>, root);
+    ReactDOM.render(<Root store = {store} ws={ws}/>, root);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

@@ -7,9 +7,9 @@ import {
 import Test from './components/test';
 
 
-const App = () => (
+const App = ({ws}) => (
     <Switch>
-      <Route exact path = "/" component={Test} />
+      <Route exact path = "/" component={() => <Test ws={ws}/>} />
     </Switch>
 );
 
